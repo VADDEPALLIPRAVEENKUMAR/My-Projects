@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row" >
+    <form action="/"  #tempForm="ngForm" ngNativeValidate 
+    (ngSubmit)="saveTemp(tempForm)" class="form-inline">
+      <nav class="navbar navbar-default navbar-inverse">
+        <div class="navbar-header">
+           <ul class="nav navbar-nav">
+              <li><a href="#"><img src="/assets/Capture2.JPG" width="200px" height="35px" ></a></li>
+           </ul>
+           <button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+        </div>
+        <div class="navbar-collapse collapse" >
+           <ul class="nav navbar-nav navbar-right">
+              <li class="nav-head"><a style="color: #31cded;" href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <li class="nav-head"><a style="color: #31cded;" href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+           </ul>
+        </div>
+     </nav>
+     <div class="panel  panel-default">
+        <div class="panel-heading " style="height:80px; padding: 25px 30px;margin: auto;">
+          <!-- <form class="form-inline">-->
+              <div class="frm form-group">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="sensors">Sensors:</label>&nbsp;
+                 <select class="form-control" id="sensors" [(ngModel)]="sensors" name="sensors"  required>
+                    <option>Temprature</option>
+                   
+                   
+                 </select>
+              </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="form-group">
+                 <label for="phoneNumber">Phone number:</label>&nbsp;
+                 <input type = 'number' placeholder = 'phone number' class="form-control"
+                 [(ngModel)]="phoneNumber" 
+                 name="phoneNumber" id="phoneNumber" required>
+              </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="frm form-group">
+                 <label for="threshold">Threshold:</label>&nbsp;
+                 <input type = 'number' placeholder = 'threshold' [(ngModel)]="threshold" name="threshold" id="threshold" required class="form-control" >
+              </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="frm checkbox">
+                 <label><input type="checkbox" [(ngModel)]="enabled" name="enabled" value='true' required>Enabled</label>
+              </div>
+           
+        </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+              <div class="grph panel-heading">
+                 <!--<form class="form-inline">-->
+                    <b>Temprature </b>
+                    <div class="frm form-group">
+                       <label for="tempraturePeriod">Period:</label>&nbsp;
+                       <select class="form-control" [(ngModel)]="temparaturePeriod" name="temparaturePeriod" id="temparaturePeriod" required>
+                          <option>Yearly</option>
+                          <option>Monthly</option>
+                          <option>Hourly</option>
+                       </select>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="frm form-group">
+                       <label for="years">Select:</label>&nbsp;
+                       <select class="form-control" [(ngModel)]="years" name="years" id="years" required>
+                          <option>2018</option>
+                          <option>2017</option>
+                          <option>2016</option>
+                       </select>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-group">
+                       <div class='input-group date' id='datetimepicker2'>
+                          <input type='text' class="form-control" id="date1" [(ngModel)]="date1" name="date1" required bsDatepicker/>
+                          <span class="input-group-addon">
+                         <label  for="date1"><span class="glyphicon glyphicon-calendar"></span></label>
+                          </span>
+                       </div>&nbsp;&nbsp;&nbsp;
+
+                    </div>
+                    <button class="btn btn-primary form-control" type="submit" >Excel Export</button>
+                
+              </div>
+              <div class="panel-body">
+                
+                 <canvas id="lineChart"></canvas>
+              </div>
+           </div>
+         
+           <form action="/" ngNativeValidate  #proximityForm="ngForm" (ngSubmit)="saveProximity(proximityForm)" class="form-inline">
+           <div class="panel panel-default">
+              <div class="grph panel-heading">
+                         <b>Proximity </b>
+                    <div class="frm form-group">
+                       <label for="proximityPeriod">Period:</label>&nbsp;
+                       <select class="form-control" [(ngModel)]="proximityPeriod" name="proximityPeriod" required id="proximityPeriod">
+                          <option>Yearly</option>
+                          <option>Monthly</option>
+                          <option>Hourly</option>
+                       </select>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="frm form-group">
+                       <input class="date-own form-control" [(ngModel)]="something"  style="width: 300px;" type="text" bsDatepicker   required>
+                    </div>&nbsp;&nbsp;&nbsp;
+                   
+                    <div class="form-group">
+                       <div class='input-group date' id="datetimepicker1">
+                          <input type='text' class="form-control" [(ngModel)]="date2" name="date2" id="date2" bsDatepicker required   />
+                          <span class="input-group-addon">
+                          <label  for="date2"><span class="glyphicon glyphicon-calendar" ></span></label>
+                          </span>
+                       </div>&nbsp;&nbsp;&nbsp;
+                 
+
+                    </div>
+                    <button class="btn btn-primary form-control" type="submit" >Excel Export</button>
+                 
+                 
+              </div>
+              <div class="panel-body">
+                 
+                <canvas id="barChart"></canvas>
+                <canvas id="pieChart"></canvas>
+              </div>
+           
+           
+           </div>
+         
